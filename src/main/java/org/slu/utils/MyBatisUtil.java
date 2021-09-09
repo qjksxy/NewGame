@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class MyBatisUtils {
+public class MyBatisUtil {
     private static SqlSessionFactory sessionFactory;
     static {
         String resource = "mybatis-config.xml";

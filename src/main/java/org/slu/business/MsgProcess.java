@@ -22,8 +22,6 @@ public class MsgProcess {
                 returnMsg += demo.toString();
             }
         }
-
-
         return returnMsg;
     }
 }
