@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="test0" class="org.slu.business.PrayItem">
+        <property name="id" value="0"/>
+        <property name="prayPool" value="0"/>
+        <property name="name" value="群主女装"/>
+        <property name="weight" value="2"/>
+    </bean>
+    <bean id="test1" class="org.slu.business.PrayItem">
+        <property name="id" value="1"/>
+        <property name="prayPool" value="0"/>
+        <property name="name" value="群主不女装"/>
+        <property name="weight" value="1"/>
+    </bean>
+    <bean id="test2" class="org.slu.business.PrayItem">
+        <property name="id" value="2"/>
+        <property name="prayPool" value="0"/>
+        <property name="name" value="女装群主"/>
+        <property name="weight" value="3"/>
+    </bean>
+</beans>

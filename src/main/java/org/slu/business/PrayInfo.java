@@ -1,8 +1,6 @@
 package org.slu.business;
 
 public class PrayInfo {
-    //抽卡用户
-    String qqAcc;
-    //抽卡次数
-    int prayNum;
+    String qqAcc;       //抽卡用户
+    int prayCount;      //抽卡次数
 }
