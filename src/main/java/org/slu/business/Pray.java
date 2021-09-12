@@ -36,7 +36,6 @@ public class Pray {
      *
      * @param prayInfo 进行祈愿的必要信息，其中至少包括账号以及祈愿次数
      * @return 返回祈愿的结果
-     * TODO: 代码尚未实现
      */
     public static PrayResult[] getPrayResults(PrayInfo prayInfo) {
         PrayResult[] prayResults = new PrayResult[prayInfo.prayCount];

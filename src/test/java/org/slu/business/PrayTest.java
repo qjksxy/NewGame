@@ -2,10 +2,11 @@ package org.slu.business;
 
 import org.junit.Test;
 
+import java.io.File;
 import java.lang.reflect.Array;
 
 public class PrayTest {
-    @Test
+
     public void test() {
         PrayInfo prayInfo = new PrayInfo();
         prayInfo.prayCount = 10;
@@ -13,7 +14,7 @@ public class PrayTest {
         System.out.println(pray);
     }
 
-    @Test
+
     public void getPoolItemsTest() {
         PrayItem[] prayItems = PrayPool.getPoolItems(0, "");
         System.out.println(prayItems.length);
@@ -21,4 +22,5 @@ public class PrayTest {
             System.out.println(prayItems[i]);
         }
     }
+
 }

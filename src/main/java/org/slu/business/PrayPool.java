@@ -2,10 +2,10 @@ package org.slu.business;
 
 import org.slu.utils.RandomUtil;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * 奖池类
@@ -13,9 +13,56 @@ import java.util.Map;
 public class PrayPool {
     private PrayPool() {}
 
-    private static int[] defaultPoolS = {0, 1, 2};
+    private static List<String> poolS = new LinkedList<>();
+    private static List<String> poolA = new LinkedList<>();
+    private static List<String> poolB = new LinkedList<>();
+    private static List<String> poolC = new LinkedList<>();
+
     private static ApplicationContext applicationContext =
-            new ClassPathXmlApplicationContext("pray-pool-item.xml");
+            new FileSystemXmlApplicationContext("prayItem.xml");
+    static {
+        poolS.add("test0");
+        poolS.add("test1");
+        poolS.add("test2");
+        poolA.add("test3");
+        poolB.add("test4");
+        poolC.add("test5");
+    }
+
+    public static void initPool() {
+        applicationContext = new FileSystemXmlApplicationContext("praytest.xml");
+    }
+
+    public static List<String> getPoolByInt(int prayPool) {
+        List<String> prayPoolList = null;
+        switch (prayPool) {
+            case Pray.PRAY_POOL_S:
+                prayPoolList = poolS;   break;
+            case Pray.PRAY_POOL_A:
+                prayPoolList = poolA;   break;
+            case Pray.PRAY_POOL_B:
+                prayPoolList = poolB;   break;
+            case Pray.PRAY_POOL_C:
+                prayPoolList = poolC;   break;
+        }
+        return prayPoolList;
+    }
+
+    public boolean putItemIntoPool(int prayPool, String itemName) {
+        List<String> prayPoolList = getPoolByInt(prayPool);
+        if(prayPoolList == null) {
+            return false;
+        }
+        return prayPoolList.add(itemName);
+    }
+
+    public boolean removeItemFromPool (int prayPool, String itemName) {
+        List<String> prayPoolList = getPoolByInt(prayPool);
+        if(prayPoolList == null) {
+            return false;
+        }
+        return prayPoolList.remove(itemName);
+    }
 
     public static PrayItem getItemFromPool(int prayPool, String qqAcc) {
         PrayItem resItem = null;
@@ -37,9 +84,10 @@ public class PrayPool {
     }
 
     public static PrayItem[] getPoolItems(int prayPool, String qqAcc) {
-        PrayItem[] prayItems = new PrayItem[defaultPoolS.length];
-        for (int i = 0; i < defaultPoolS.length; i++) {
-            PrayItem prayItem = (PrayItem) applicationContext.getBean("test" + defaultPoolS[i]);
+        List<String> prayPoolList = PrayPool.getPoolByInt(prayPool);
+        PrayItem[] prayItems = new PrayItem[prayPoolList.size()];
+        for (int i=0; i<prayPoolList.size(); i++) {
+            PrayItem prayItem = (PrayItem) applicationContext.getBean(prayPoolList.get(i));
             prayItems[i] = prayItem;
         }
         return prayItems;
