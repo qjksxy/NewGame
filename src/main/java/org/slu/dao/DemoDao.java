@@ -21,6 +21,7 @@ public class DemoDao {
         SqlSession sqlSession = MyBatisUtil.getSqlSession();
         DemoMapper mapper = sqlSession.getMapper(DemoMapper.class);
         List<Demo> demoList = mapper.getDemoList();
+        sqlSession.close();
         return demoList;
     }
 }

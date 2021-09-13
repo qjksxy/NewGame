@@ -19,5 +19,6 @@
     </environments>
     <mappers>
         <mapper class="org.slu.pojo.DemoMapper"/>
+        <mapper class="org.slu.pojo.UserMapper"/>
     </mappers>
 </configuration>
