@@ -1,10 +1,5 @@
 package org.slu.business;
 
-import org.junit.Test;
-
-import java.io.File;
-import java.lang.reflect.Array;
-
 public class PrayTest {
 
     public void test() {
@@ -18,8 +13,8 @@ public class PrayTest {
     public void getPoolItemsTest() {
         PrayItem[] prayItems = PrayPool.getPoolItems(0, "");
         System.out.println(prayItems.length);
-        for (int i = 0; i < prayItems.length; i++) {
-            System.out.println(prayItems[i]);
+        for (PrayItem prayItem : prayItems) {
+            System.out.println(prayItem);
         }
     }
 

@@ -2,6 +2,7 @@ package org.slu.business;
 
 import org.slu.dao.UserDao;
 import org.slu.pojo.User;
+import org.slu.utils.DateUtil;
 import org.slu.utils.RandomUtil;
 import org.slu.utils.Text;
 
@@ -45,19 +46,21 @@ public class MsgProcess {
         User user = UserDao.getUserByQqAcc(msgs[0]);
         Date nowDate = new Date(System.currentTimeMillis());
         Date date = user.getSignDate();
-        if (date.before(nowDate)) {
+        int daysBetweenSignDateAndNow = DateUtil.getDaysBetweenTwoDates(date, nowDate);
+        if (daysBetweenSignDateAndNow > 0) {
             int copperGrowth = RandomUtil.getRandomInt(100) + 50;
             user.setGoldCoin(user.getGoldCoin() + 50);
             user.setCopperCoin(user.getCopperCoin() + copperGrowth);
             user.setSignDate(nowDate);
             user.setSignCount(user.getSignCount() + 1);
             returnMsg = "签到成功，金币+50，铜币+" + copperGrowth;
-            if (date.compareTo(nowDate) == -1) {
+            if (daysBetweenSignDateAndNow == 1) {
                 user.setContinueDay(user.getContinueDay() + 1);
-                returnMsg += "连续签到第" + user.getContinueDay() + "天";
+                returnMsg += "\n连续签到" + user.getContinueDay() + "天";
             } else {
-                user.setContinueDay(0);
+                user.setContinueDay(1);
             }
+            returnMsg += "\n累计签到" + user.getSignCount() + "天";
             UserDao.updateUser(user);
         } else {
             returnMsg = "今天已经签到了哦";

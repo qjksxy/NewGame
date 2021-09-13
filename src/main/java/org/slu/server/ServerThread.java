@@ -28,7 +28,7 @@ public class ServerThread extends Thread{
             if (serverMsg.equals("")) {
                 serverMsg = "空消息";
             }
-            logger.info("server:" + serverMsg);
+            logger.info("server:\n" + serverMsg);
             OutputStream outputStream = socket.getOutputStream();
             DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
             dataOutputStream.writeUTF(serverMsg);
