@@ -34,4 +34,14 @@ public class DateUtilTest {
         int daysBetweenTwoDates = DateUtil.getDaysBetweenTwoDates(date1, nowDate);
         System.out.println(daysBetweenTwoDates);
     }
+
+    @Test
+    public void timeTest() {
+        int time = 46800000;
+        Date nowDate = new Date(System.currentTimeMillis());
+        User user1 = UserDao.getUserByQqAcc("865538395");
+        Date date1 = user1.getSignDate();
+        System.out.println(nowDate.getTime());
+        System.out.println(date1.getTime() - time);
+    }
 }

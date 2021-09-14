@@ -17,6 +17,7 @@ public class MsgProcess {
     public static final String PRAY_2 = "draw";
     private static final String VERSION = "version";
 
+    private static final int HOURS13 = 46800000;
     /* 用于保存用户状态码  以方便用户进行指令缩写
         如用户输入hero指令查看角色之后  再输入序号就可以查看角色详情
         而不必输入hero+序号
@@ -45,7 +46,7 @@ public class MsgProcess {
         String returnMsg;
         User user = UserDao.getUserByQqAcc(msgs[0]);
         Date nowDate = new Date(System.currentTimeMillis());
-        Date date = user.getSignDate();
+        Date date = new Date(user.getSignDate().getTime() - HOURS13);
         int daysBetweenSignDateAndNow = DateUtil.getDaysBetweenTwoDates(date, nowDate);
         if (daysBetweenSignDateAndNow > 0) {
             int copperGrowth = RandomUtil.getRandomInt(100) + 50;
