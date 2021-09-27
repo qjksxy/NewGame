@@ -1,5 +1,7 @@
 package org.slu.business;
 
+import org.junit.Test;
+
 public class PrayTest {
 
     public void test() {
@@ -17,5 +19,6 @@ public class PrayTest {
             System.out.println(prayItem);
         }
     }
+
 
 }

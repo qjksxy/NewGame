@@ -25,8 +25,14 @@ public class PrayPool {
         poolS.add("test1");
         poolS.add("test2");
         poolA.add("test3");
-        poolB.add("test4");
-        poolC.add("test5");
+        poolA.add("test4");
+        poolA.add("test5");
+        poolB.add("test6");
+        poolB.add("test7");
+        poolB.add("test8");
+        poolB.add("test9");
+        poolC.add("test10");
+        poolC.add("test11");
     }
 
     public static void initPool() {

@@ -26,16 +26,17 @@ public class DateUtilTest {
 
 
     public void test2() {
-        Date nowDate = new Date(System.currentTimeMillis());
-        User user1 = UserDao.getUserByQqAcc("865538395");
-        Date date1 = user1.getSignDate();
-        User user2 = UserDao.getUserByQqAcc("2153708970");
-        Date date2 = user2.getSignDate();
-        int daysBetweenTwoDates = DateUtil.getDaysBetweenTwoDates(date1, nowDate);
-        System.out.println(daysBetweenTwoDates);
+        int HOURS13 = 46800000;
+        int DAY = HOURS13 / 13 * 24;
+        String[] msgs = {"834375570", "sign"};
+        User user = UserDao.getUserByQqAcc(msgs[0]);
+        Date date = new Date(System.currentTimeMillis() + DAY * 4);
+        System.out.println(user.getSignDate().getTime());
+        user.setSignDate(date);
+        UserDao.updateUser(user);
     }
 
-    @Test
+
     public void timeTest() {
         int time = 46800000;
         Date nowDate = new Date(System.currentTimeMillis());

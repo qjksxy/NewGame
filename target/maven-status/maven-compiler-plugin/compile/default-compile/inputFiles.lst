@@ -1,5 +1,7 @@
+/home/piner/IdeaProjects/NewGame/src/main/java/org/slu/pojo/Item.java
 /home/piner/IdeaProjects/NewGame/src/main/java/org/slu/utils/DateUtil.java
 /home/piner/IdeaProjects/NewGame/src/main/java/org/slu/business/PrayItem.java
+/home/piner/IdeaProjects/NewGame/src/main/java/org/slu/pojo/Username.java
 /home/piner/IdeaProjects/NewGame/src/main/java/org/slu/pojo/DemoMapper.java
 /home/piner/IdeaProjects/NewGame/src/main/java/org/slu/server/MainServer.java
 /home/piner/IdeaProjects/NewGame/src/main/java/org/slu/utils/Text.java
@@ -7,8 +9,10 @@
 /home/piner/IdeaProjects/NewGame/src/main/java/org/slu/business/PrayInfo.java
 /home/piner/IdeaProjects/NewGame/src/main/java/org/slu/utils/RandomUtil.java
 /home/piner/IdeaProjects/NewGame/src/main/java/org/slu/utils/MyBatisUtil.java
+/home/piner/IdeaProjects/NewGame/src/main/java/org/slu/pojo/UsernameMapper.java
 /home/piner/IdeaProjects/NewGame/src/main/java/org/slu/dao/DemoDao.java
 /home/piner/IdeaProjects/NewGame/src/main/java/org/slu/business/MsgProcess.java
+/home/piner/IdeaProjects/NewGame/src/main/java/org/slu/dao/UsernameDao.java
 /home/piner/IdeaProjects/NewGame/src/main/java/org/slu/server/ServerThread.java
 /home/piner/IdeaProjects/NewGame/src/main/java/org/slu/business/PrayPool.java
 /home/piner/IdeaProjects/NewGame/src/main/java/org/slu/dao/UserDao.java

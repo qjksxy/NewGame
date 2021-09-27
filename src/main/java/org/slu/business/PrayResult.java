@@ -27,14 +27,23 @@ public class PrayResult {
         this.id = id;
     }
 
+    private void getRate() {
+        if(this.rating.equals("0")) {
+            this.rating = "S";
+        } else if(this.rating.equals("1")) {
+            this.rating = "A";
+        } else if(this.rating.equals("2")) {
+            this.rating = "B";
+        } else if(this.rating.equals("3")) {
+            this.rating = "C";
+        }
+    }
+
     @Override
     public String toString() {
-        return "PrayResult{" +
-                "rating='" + rating + '\'' +
-                ", count=" + count +
-                ", name='" + name + '\'' +
-                ", desc='" + desc + '\'' +
-                ", id=" + id +
-                '}';
+        this.getRate();
+        String str = "";
+        str = this.rating + "·" + this.name + "*" + this.count;
+        return str;
     }
 }

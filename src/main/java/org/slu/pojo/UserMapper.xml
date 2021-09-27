@@ -13,4 +13,10 @@
                         currentPrayCount = #{currentPrayCount}
         where qqAcc = #{qqAcc}
     </update>
+    <insert id="insertUser" parameterType="org.slu.pojo.User">
+        insert into user (qqAcc, goldCoin, copperCoin, signDate, continueDay,
+                          signCount, prayCount, currentPrayCount)
+        values (#{qqAcc}, 0, 0, '2000-01-01', 0,
+                0, 0, 0)
+    </insert>
 </mapper>

@@ -16,4 +16,12 @@ public class UserTest {
         }
     }
 
+    @Test
+    public void test() {
+        User user = new User();
+        user.setSignDate(new Date(978278400000L));
+        user.setQqAcc("123490");
+        System.out.println(user.toString());
+    }
+
 }
