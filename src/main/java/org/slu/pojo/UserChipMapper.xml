@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.slu.pojo.UserChipMapper">
+    <select id="getUserChip" resultType="org.slu.pojo.UserChip">
+        select * from userchip where qqAcc = #{param1} and chipID = #{param2}
+    </select>
+    <update id="updateUserChip" parameterType="org.slu.pojo.UserChip">
+        update userchip set chipCount = #{chipCount}, stars = #{stars}
+        where qqAcc = #{qqAcc} and chipID = #{chipID}
+    </update>
+    <insert id="insertUserChip" parameterType="org.slu.pojo.UserChip">
+        insert into userchip (qqAcc, chipID, chipCount, stars)
+        values (#{qqAcc}, #{chipID}, #{chipCount}, #{stars})
+    </insert>
+    <select id="getUserChipsByQqAcc" resultType="org.slu.pojo.UserChip">
+        select * from userchip where qqAcc = #{qqAcc}
+    </select>
+</mapper>

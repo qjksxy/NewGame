@@ -21,18 +21,22 @@ public class PrayPool {
     private static ApplicationContext applicationContext =
             new FileSystemXmlApplicationContext("prayItem.xml");
     static {
-        poolS.add("test0");
-        poolS.add("test1");
-        poolS.add("test2");
-        poolA.add("test3");
-        poolA.add("test4");
-        poolA.add("test5");
-        poolB.add("test6");
-        poolB.add("test7");
-        poolB.add("test8");
-        poolB.add("test9");
-        poolC.add("test10");
-        poolC.add("test11");
+        poolS.add("h0");
+        poolS.add("h1");
+        poolS.add("h2");
+        poolA.add("h3");
+        poolA.add("h4");
+        poolA.add("h5");
+        poolB.add("h6");
+        poolB.add("h7");
+        poolB.add("h8");
+        poolB.add("h9");
+        poolC.add("h10");
+        poolC.add("h11");
+    }
+
+    public static ApplicationContext getApplicationContext() {
+        return applicationContext;
     }
 
     public static void initPool() {

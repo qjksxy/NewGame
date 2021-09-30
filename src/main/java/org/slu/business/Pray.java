@@ -25,7 +25,7 @@ public class Pray {
         for (PrayResult prayResult : prayResults) {
             returnStr += prayResult.toString() + "\n";
         }
-
+        prayInfo.getResults(prayResults);
         return returnStr;
     }
 

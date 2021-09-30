@@ -1,8 +1,10 @@
 package org.slu.business;
 
+import org.slu.dao.UserChipDao;
 import org.slu.dao.UserDao;
 import org.slu.dao.UsernameDao;
 import org.slu.pojo.User;
+import org.slu.pojo.UserChip;
 import org.slu.utils.DateUtil;
 import org.slu.utils.RandomUtil;
 import org.slu.utils.Text;
@@ -21,6 +23,7 @@ public class MsgProcess {
     private static final String ITEM = "item";
     private static final String SET_NAME = "setname";
     private static final String VERSION = "version";
+    private static final String CHIP = "chip";
 
     /* 用于保存用户状态码  以方便用户进行指令缩写
         如用户输入hero指令查看角色之后  再输入序号就可以查看角色详情
@@ -53,6 +56,9 @@ public class MsgProcess {
                 break;
             case SET_NAME:
                 returnMsg = setName(msgs);
+                break;
+            case CHIP:
+                returnMsg = getChips(msgs);
                 break;
         }
         return returnMsg;
@@ -89,6 +95,7 @@ public class MsgProcess {
     }
 
     private static String pray(String[] msgs) {
+        User user = UserDao.getUserByQqAcc(msgs[0]);
         int prayCount = 10;
         if (msgs.length > 2) {
             try {
@@ -103,9 +110,17 @@ public class MsgProcess {
                 return "error";
             }
         }
-        PrayInfo prayInfo = new PrayInfo();
-        prayInfo.prayCount = prayCount;
-        return Pray.pray(prayInfo);
+        if (user.getGoldCoin() >= prayCount * 10) {
+            user.setGoldCoin(user.getGoldCoin() - prayCount * 10);
+            UserDao.updateUser(user);
+            PrayInfo prayInfo = new PrayInfo();
+            prayInfo.prayCount = prayCount;
+            prayInfo.qqAcc = msgs[0];
+            return Pray.pray(prayInfo);
+        } else {
+            return "穷鬼，爬";
+        }
+
     }
 
     public static String item(String[] msgs) {
@@ -128,5 +143,14 @@ public class MsgProcess {
             }
         }
         return returnMsg;
+    }
+
+    public static String getChips(String[] msgs) {
+        String resMsg = "";
+        UserChip[] userChips = UserChipDao.getUserChipsByQqAcc(msgs[0]);
+        for (UserChip userChip : userChips) {
+            resMsg += userChip.toString() + "\n";
+        }
+        return resMsg;
     }
 }

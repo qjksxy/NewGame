@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="test0" class="org.slu.business.PrayItem">
+        <property name="id" value="0"/>
+        <property name="prayPool" value="0"/>
+        <property name="name" value="群主女装"/>
+        <property name="weight" value="3"/>
+    </bean>
+    <bean id="test1" class="org.slu.business.PrayItem">
+        <property name="id" value="1"/>
+        <property name="prayPool" value="0"/>
+        <property name="name" value="群主不女装"/>
+        <property name="weight" value="1"/>
+    </bean>
+    <bean id="test2" class="org.slu.business.PrayItem">
+        <property name="id" value="2"/>
+        <property name="prayPool" value="0"/>
+        <property name="name" value="女装群主"/>
+        <property name="weight" value="4"/>
+    </bean>
+    <bean id="test3" class="org.slu.business.PrayItem">
+        <property name="id" value="3"/>
+        <property name="prayPool" value="1"/>
+        <property name="name" value="长哥[夏日泳装]"/>
+        <property name="weight" value="2"/>
+    </bean>
+    <bean id="test4" class="org.slu.business.PrayItem">
+        <property name="id" value="4"/>
+        <property name="prayPool" value="1"/>
+        <property name="name" value="法海[大威天龙]"/>
+        <property name="weight" value="1"/>
+    </bean>
+    <bean id="test5" class="org.slu.business.PrayItem">
+        <property name="id" value="5"/>
+        <property name="prayPool" value="1"/>
+        <property name="name" value="马保国[武林高手]"/>
+        <property name="weight" value="3"/>
+    </bean>
+    <bean id="test6" class="org.slu.business.PrayItem">
+        <property name="id" value="6"/>
+        <property name="prayPool" value="2"/>
+        <property name="name" value="八皇后"/>
+        <property name="weight" value="3"/>
+    </bean>
+    <bean id="test7" class="org.slu.business.PrayItem">
+        <property name="id" value="7"/>
+        <property name="prayPool" value="2"/>
+        <property name="name" value="二叉树"/>
+        <property name="weight" value="3"/>
+    </bean>
+    <bean id="test8" class="org.slu.business.PrayItem">
+        <property name="id" value="8"/>
+        <property name="prayPool" value="2"/>
+        <property name="name" value="卧龙"/>
+        <property name="weight" value="3"/>
+    </bean>
+    <bean id="test9" class="org.slu.business.PrayItem">
+        <property name="id" value="9"/>
+        <property name="prayPool" value="2"/>
+        <property name="name" value="凤雏"/>
+        <property name="weight" value="3"/>
+    </bean>
+    <bean id="test10" class="org.slu.business.PrayItem">
+        <property name="id" value="10"/>
+        <property name="prayPool" value="3"/>
+        <property name="name" value="小红花"/>
+        <property name="weight" value="3"/>
+    </bean>
+    <bean id="test11" class="org.slu.business.PrayItem">
+        <property name="id" value="11"/>
+        <property name="prayPool" value="3"/>
+        <property name="name" value="小蒜苗"/>
+        <property name="weight" value="3"/>
+    </bean>
+</beans>
