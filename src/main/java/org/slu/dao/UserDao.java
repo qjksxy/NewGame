@@ -17,8 +17,8 @@ public class UserDao {
             user.setQqAcc(qqAcc);
             user.setSignDate(new Date(978278400000L));
             mapper.insertUser(user);
+            sqlSession.commit();
         }
-        sqlSession.commit();
         sqlSession.close();
         return user;
     }

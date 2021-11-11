@@ -8,7 +8,7 @@
     </select>
     
     <update id="setName" parameterType="org.slu.pojo.Username">
-        update username set name = #{name} where qqAcc = #{qqAcc}
+        update username set username = #{username} where qqAcc = #{qqAcc}
     </update>
     
     <insert id="insertUsername" parameterType="org.slu.pojo.Username">

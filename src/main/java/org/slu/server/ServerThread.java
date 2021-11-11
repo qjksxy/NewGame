@@ -7,8 +7,14 @@ import org.slu.dao.UsernameDao;
 import java.io.*;
 import java.net.Socket;
 
-//processing:处理
-public class ServerThread extends Thread{
+/**
+ * 对收到的消息进行简单解析
+ * 本class只负责：
+ * 1. 将消息以空格分割为String数组，交给business.MsgProcess处理
+ * 2. 获得处理结果（String），将结果发回
+ *    若处理结果为空，发回 空消息
+ */
+public class ServerThread extends Thread {
     private Logger logger = Logger.getLogger(ServerThread.class);
     private Socket socket;
 
@@ -26,7 +32,13 @@ public class ServerThread extends Thread{
             String clientMsg = new String(b, 0, msgLen);
             String[] clientMsgs = clientMsg.split(" ");
             logger.info("client:" + clientMsg);
-            String serverMsg = MsgProcess.msgProcess(clientMsgs);
+            String serverMsg = "";
+            try {
+                serverMsg = MsgProcess.msgProcess(clientMsgs);
+            } catch (Exception e) {
+                serverMsg = e.toString();
+                e.printStackTrace();
+            }
             if (serverMsg.equals("")) {
                 serverMsg = "空消息";
             }
